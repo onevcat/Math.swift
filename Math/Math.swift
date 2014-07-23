@@ -9,12 +9,12 @@
 import Foundation
 
 //Protocols
-protocol Addable {
+public protocol Addable {
     func +(lhs: Self, rhs: Self) -> Self
     init()
 }
 
-protocol Multipliable {
+public protocol Multipliable {
     func *(lhs: Self, rhs: Self) -> Self
     init()
 }
@@ -51,27 +51,27 @@ func _trueCondition<T>(t: T) -> Bool {
 }
 
 //Sum
-func Σ<T: Addable>(input : T...) -> T {
+public func Σ<T: Addable>(input : T...) -> T {
     return sumOf(input)
 }
 
-func Σ<T: Addable>(input : [T]) -> T {
+public func Σ<T: Addable>(input : [T]) -> T {
     return sumOf(input)
 }
 
-func Σ<T: Addable>(input : Slice<T>) -> T {
+public func Σ<T: Addable>(input : Slice<T>) -> T {
     return sumOf(input)
 }
 
-func sumOf<T: Addable>(input : T...) -> T {
+public func sumOf<T: Addable>(input : T...) -> T {
     return sumOf(input)
 }
 
-func sumOf<T: Addable>(input : Slice<T>) -> T {
+public func sumOf<T: Addable>(input : Slice<T>) -> T {
     return sumOf([] + input)
 }
 
-func sumOf<T: Addable>(input : [T]) -> T {
+public func sumOf<T: Addable>(input : [T]) -> T {
     return reduce(input, T()) {$0 + $1}
 }
 
@@ -80,7 +80,7 @@ operator postfix ~! {
 
 }
 
-@postfix func ~! <T: Integer>(var num: T) -> T {
+@postfix public func ~! <T: Integer>(var num: T) -> T {
     assert(num > 0, "Factorial function can not receive a number less than 1")
     var result: T = 1
     while (num > 1) {
@@ -91,27 +91,27 @@ operator postfix ~! {
 }
 
 //Product
-func Π<T: Multipliable>(input : T...) -> T {
+public func Π<T: Multipliable>(input : T...) -> T {
     return productOf(input);
 }
 
-func Π<T: Multipliable>(input : [T]) -> T {
+public func Π<T: Multipliable>(input : [T]) -> T {
     return productOf(input);
 }
 
-func Π<T: Multipliable>(input : Slice<T>) -> T {
+public func Π<T: Multipliable>(input : Slice<T>) -> T {
     return productOf(input);
 }
 
-func productOf<T: Multipliable>(input : T...) -> T {
+public func productOf<T: Multipliable>(input : T...) -> T {
     return productOf(input);
 }
 
-func productOf<T: Multipliable>(input : Slice<T>) -> T {
+public func productOf<T: Multipliable>(input : Slice<T>) -> T {
     return productOf(input);
 }
 
-func productOf<T: Multipliable>(var input : [T]) -> T {
+public func productOf<T: Multipliable>(var input : [T]) -> T {
     return input.count == 0 ? T() : reduce(input[1..<input.count], input[0]) {$0 * $1}
 }
 
