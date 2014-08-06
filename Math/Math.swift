@@ -46,11 +46,18 @@ extension Int64: Addable, Multipliable {
 extension UInt: Addable, Multipliable {
 }
 
-func _trueCondition<T>(t: T) -> Bool {
-    return true
+// MARK: -Sum
+
+prefix operator ∑ {}
+
+public prefix func ∑<T: Addable>(input: [T]) -> T {
+    return sumOf(input)
 }
 
-//Sum
+public prefix func ∑<T: Addable>(input : Slice<T>) -> T {
+    return sumOf(input)
+}
+
 public func Σ<T: Addable>(input : T...) -> T {
     return sumOf(input)
 }
@@ -75,12 +82,10 @@ public func sumOf<T: Addable>(input : [T]) -> T {
     return reduce(input, T()) {$0 + $1}
 }
 
-//Factorial
-operator postfix ~! {
+// MARK: -Factorial
+postfix operator ~! {}
 
-}
-
-@postfix public func ~! <T: Integer>(var num: T) -> T {
+postfix public func ~! <T: IntegerType>(var num: T) -> T {
     assert(num > 0, "Factorial function can not receive a number less than 1")
     var result: T = 1
     while (num > 1) {
@@ -90,7 +95,17 @@ operator postfix ~! {
     return result
 }
 
-//Product
+// MARK: -Product
+prefix operator ∏ {}
+
+public prefix func ∏<T: Multipliable>(input: [T]) -> T {
+    return productOf(input)
+}
+
+public prefix func ∏<T: Multipliable>(input : Slice<T>) -> T {
+    return productOf(input)
+}
+
 public func Π<T: Multipliable>(input : T...) -> T {
     return productOf(input);
 }
@@ -108,7 +123,7 @@ public func productOf<T: Multipliable>(input : T...) -> T {
 }
 
 public func productOf<T: Multipliable>(input : Slice<T>) -> T {
-    return productOf(input);
+    return productOf([] + input);
 }
 
 public func productOf<T: Multipliable>(var input : [T]) -> T {

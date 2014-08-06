@@ -403,6 +403,7 @@
 				D15824C9196BBBAC00507352 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D15824CA196BBBAC00507352 /* Build configuration list for PBXNativeTarget "MathTests" */ = {
 			isa = XCConfigurationList;
@@ -411,6 +412,7 @@
 				D15824CC196BBBAC00507352 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
