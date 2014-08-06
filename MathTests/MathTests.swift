@@ -22,25 +22,12 @@ class MathTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock() {
-            // Put the code you want to measure the time of here.
-        }
-        
-    }
-    
     func testSumOfInt() {
-        let sum1 = Σ(1, 2, 3)
+        let sum1 = ∑([1, 2, 3])
         let sum2 = sumOf(1, 2, 3)
 
         let arr = [1, 2, 3]
-        let sum3 = Σ(arr)
+        let sum3 = ∑(arr)
         
         let sum4 = sumOf(arr)
         let sum5 = sumOf(arr[0...1])
@@ -53,11 +40,11 @@ class MathTests: XCTestCase {
     }
     
     func testSumOfDouble() {
-        let sum1 = Σ(1.1, 2.2, 3.3)
+        let sum1 = ∑([1.1, 2.2, 3.3])
         let sum2 = sumOf(1.1, 2.2, 3.3)
 
         let arr = [1.1, 2.2, 3.3]
-        let sum3 = Σ(arr)
+        let sum3 = ∑(arr)
         let sum4 = sumOf(arr)
         let sum5 = sumOf(arr[0...1])
         
@@ -70,11 +57,11 @@ class MathTests: XCTestCase {
     }
     
     func testSumOfString() {
-        let sum1 = Σ("Hello",",","world")
+        let sum1 = ∑(["Hello",",","world"])
         let sum2 = sumOf("Hello",",","world")
 
         let arr = ["Hello", ",", "world"]
-        let sum3 = Σ(arr)
+        let sum3 = ∑(arr)
         let sum4 = sumOf(arr)
         
         XCTAssertEqual("Hello,world", sum1, "String should be sumable")

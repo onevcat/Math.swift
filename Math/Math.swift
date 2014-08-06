@@ -1,14 +1,28 @@
 //
-//  Math.swift
-//  Math
+// Math.swift
+// Copyright (c) 2014 Wei Wang (http://onevcat,com)
 //
-//  Created by 王 巍 on 14-7-8.
-//  Copyright (c) 2014年 OneV's Den. All rights reserved.
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
 
 import Foundation
 
-//Protocols
+// MARK: -Misc
 public protocol Addable {
     func +(lhs: Self, rhs: Self) -> Self
     init()
@@ -58,18 +72,6 @@ public prefix func ∑<T: Addable>(input : Slice<T>) -> T {
     return sumOf(input)
 }
 
-public func Σ<T: Addable>(input : T...) -> T {
-    return sumOf(input)
-}
-
-public func Σ<T: Addable>(input : [T]) -> T {
-    return sumOf(input)
-}
-
-public func Σ<T: Addable>(input : Slice<T>) -> T {
-    return sumOf(input)
-}
-
 public func sumOf<T: Addable>(input : T...) -> T {
     return sumOf(input)
 }
@@ -106,18 +108,6 @@ public prefix func ∏<T: Multipliable>(input : Slice<T>) -> T {
     return productOf(input)
 }
 
-public func Π<T: Multipliable>(input : T...) -> T {
-    return productOf(input);
-}
-
-public func Π<T: Multipliable>(input : [T]) -> T {
-    return productOf(input);
-}
-
-public func Π<T: Multipliable>(input : Slice<T>) -> T {
-    return productOf(input);
-}
-
 public func productOf<T: Multipliable>(input : T...) -> T {
     return productOf(input);
 }
@@ -130,5 +120,5 @@ public func productOf<T: Multipliable>(var input : [T]) -> T {
     return input.count == 0 ? T() : reduce(input[1..<input.count], input[0]) {$0 * $1}
 }
 
-
+// MARK: 
 
